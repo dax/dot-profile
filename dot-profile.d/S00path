@@ -1,0 +1,4 @@
+# -*- sh -*-
+
+export JAVA_HOME=${HOME}/local/stow/java
+PATH=${HOME}/local/bin:${JAVA_HOME}/bin:/sw/bin:/opt/local/bin:/opt/local/sbin:$PATH

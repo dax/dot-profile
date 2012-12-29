@@ -1,0 +1,6 @@
+# -*- sh -*-
+
+export CLOJURE_EXT=~/local/stow/clojure
+
+export PATH=$PATH:~/local/stow/clojure/clojure-contrib/launchers/bash:~/local/stow/clojure/leiningen
+

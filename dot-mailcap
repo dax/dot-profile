@@ -1,0 +1,2 @@
+image/*;                feh --scale-down %s
+application/pdf;        evince %s

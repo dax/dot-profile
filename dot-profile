@@ -1,0 +1,22 @@
+# -*- sh -*-
+
+export black='\e[0;30m'
+export red='\e[0;31m'
+export green='\e[0;32m'
+export yellow='\e[0;33m'
+export blue='\e[0;34m'
+export magenta='\e[0;35m'
+export cyan='\e[0;36m'
+export white='\e[0;37m'
+export colors_reset='\e[m'
+
+echo -e "Loading ${red}profile${colors_reset}"
+
+for f in ${HOME}/.profile.d/*; do
+    if [ -f "$f" ]; then
+        echo -e "\tLoading ${blue}$(basename $f)${colors_reset}"
+        . $f
+    fi
+done
+
+echo -e "${red}Profile loaded${colors_reset}"

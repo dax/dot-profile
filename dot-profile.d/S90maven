@@ -1,0 +1,3 @@
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+export MAVEN_HOME=$HOME/local/stow/maven
+export PATH=$MAVEN_HOME/bin:$PATH

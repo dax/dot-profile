@@ -1,0 +1,6 @@
+# -*- sh -*-
+
+export EMAIL="David Rousselie <dax@happycoders.org>"
+export EDITOR=e
+export PAGER=most
+export TERM=screen-256color

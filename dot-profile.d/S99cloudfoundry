@@ -1,0 +1,3 @@
+# -*- sh -*-
+
+export PATH=~/local/stow/vmc/bin:$PATH
