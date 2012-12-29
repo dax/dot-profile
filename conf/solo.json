@@ -1,5 +1,6 @@
 {
   "run_list": [ "recipe[profile]",
                 "recipe[bash-it]",
-                "recipe[git]" ]
+                "recipe[git]",
+                "recipe[python]" ]
 }
