@@ -1,0 +1,36 @@
+#!/bin/bash
+
+red='\e[0;31m'
+blue='\e[0;34m'
+colors_reset=`tput sgr0`
+
+if [ $# -eq 1 ]; then
+    remote_repo=$1
+    remote_repo_pattern=$1
+else
+    remote_repo=""
+    remote_repo_pattern=".*"
+fi
+git remote update $remote_repo
+current_branch=$(git branch | grep "^\*" | cut -d ' ' -f 2)
+tracked_branches=$(git config -l | grep "^branch\.[^.]\+\.remote=${remote_repo_pattern}$" | sed -e "s/^branch\.\([^.]\+\)\.remote=.*/\1/")
+for b in $tracked_branches; do
+    if [ -z "$remote_repo" ]; then
+        remote=$(git config -l | grep "^branch\.${b}\.remote=" | sed -e "s/^branch\.${b}\.remote=\(.*\)/\1/")
+    else
+        remote=$remote_repo
+    fi
+    remote_branch=$(git config -l | grep "^branch\.${b}\.merge=" | sed -e "s#^branch\.${b}\.merge=refs/heads/\(.*\)#\1#")
+    if [ -z "$remote" ] || [ -z "$remote_branch" ]; then
+        echo "Remote ($remote) or remote branch ($remote_branch) is empty. I might be a bug. Skipping."
+    else
+        echo -e "Updating ${blue}${remote_branch}${colors_reset} branch from ${red}${remote}${colors_reset}"
+        git checkout $b
+        git merge ${remote}/${remote_branch}
+        if [ $? -ne 0 ]; then
+            echo "A merge conflict occured. Please fix it, commit and then exit this shell."
+            PS1="${red}Exit this shell when done merging to continue pullall${colors_reset}\n${blue}${b}${colors_reset} $" bash --noprofile --norc
+        fi
+    fi
+done
+git checkout $current_branch

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+error() {
+    echo $1
+    exit 1
+}
+
+[ $# -lt 1 ] && error "Usage: $0 branch"
+
+git checkout -b $1
+git push origin $1
+git branch --set-upstream $1 origin/$1

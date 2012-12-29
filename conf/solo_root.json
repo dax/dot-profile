@@ -1,3 +1,4 @@
 {
-  "run_list": [ "recipe[profile::root]" ]
+  "run_list": [ "recipe[profile::root]",
+                "recipe[git::root]" ]
 }

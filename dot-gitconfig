@@ -1,0 +1,59 @@
+# -*- conf-mode -*-
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+
+[user]
+    name = David Rousselie
+    email = david.rousselie@happycoders.org
+
+[alias]
+    st = status
+    stp = status --porcelain
+    ci = commit
+    br = branch
+    co = checkout
+    rz = reset --hard HEAD
+    unstage = reset HEAD
+    sl = stash list
+    ss = stash save
+    sp = stash pop
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    ru = remoteupdate
+    trackingbranch = "!git branch -vv | grep '^\\*' | sed -e 's/^\\*\\s\\+[^ ]\\+\\s\\+[0-9a-f]\\+\\s\\+\\[\\([^]:]\\+\\).*\\].*/\\1/'"
+    lpush = "!git --no-pager log $(git trackingbranch)..HEAD --oneline"
+    lpull = "!git --no-pager log HEAD..$(git trackingbranch) --oneline"
+    whatsnew = "!git diff $(git trackingbranch)...HEAD"
+    whatscoming = "!git diff HEAD...$(git trackingbranch)"
+    currentbranch = "!git branch | grep \"^\\*\" | cut -d \" \" -f 2"
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --decorate
+
+[mergetool "ediff"]
+    cmd = e
+
+[giggle]
+    main-window-maximized = false
+    main-window-geometry = 718x874+0+24
+    history-view-vpane-position = 568
+    main-window-view = HistoryView
+    file-view-vpane-position = 526
+[core]
+    whitespace = trailing-space,space-before-tab
+    autocrlf = input
+#    safecrlf = true
+[diff]
+    renames = copies
+    mnemonicprefix = true
+[branch]
+    autosetupmerge = true
+[push]
+    default = tracking
+[rerere]
+    enabled = true
+    autoupdate = true
+[merge]
+    stat = true

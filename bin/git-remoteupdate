@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -f .gitorigin ]; then
+    echo Updating from $(cat .gitorigin)
+    git pull $(cat .gitorigin) master
+    echo Pushing changes to origin
+    git push origin master
+else
+    echo Git origin not found
+fi

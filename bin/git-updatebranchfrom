@@ -1,0 +1,16 @@
+#!/bin/sh
+
+error() {
+    echo $1
+    exit 1
+}
+
+[ $# -lt 1 ] && error "Usage: $0 branch"
+
+updatefrom_branch=$1
+branch_toupdate=$(git currentbranch)
+
+git checkout $updatefrom_branch
+git pullr
+git checkout $branch_toupdate
+git merge --no-ff $updatefrom_branch

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+red='\e[0;31m'
+blue='\e[0;34m'
+colors_reset=`tput sgr0`
+
+remote_repo="origin"
+remote_repo_pattern="origin"
+git remote update $remote_repo >& /dev/null
+current_branch=$(git branch | grep "^\*" | cut -d ' ' -f 2)
+branches=$(git config -l | grep "^branch\.[^.]\+\.remote=${remote_repo_pattern}$" | sed -e "s/^branch\.\([^.]\+\)\.remote=.*/\1/")
+for b in $branches; do
+    git checkout $b >& /dev/null
+    echo -e "Unpushed commits from ${blue}${b}${colors_reset} to ${red}${remote_repo}${colors_reset}:"
+    git lpush $@
+    echo -e "Unmerged commits from ${blue}${remote_repo}${colors_reset} on ${red}${b}${colors_reset}:"
+    git lpull $@
+done
+git checkout $current_branch >& /dev/null
