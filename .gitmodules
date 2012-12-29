@@ -7,3 +7,9 @@
 [submodule "git-flow-completion"]
 	path = git-flow-completion
 	url = git://github.com/bobthecow/git-flow-completion.git
+[submodule "rbenv"]
+	path = rbenv
+	url = git://github.com/sstephenson/rbenv.git
+[submodule "ruby-build"]
+	path = ruby-build
+	url = git://github.com/sstephenson/ruby-build.git
