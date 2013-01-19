@@ -13,3 +13,6 @@
 [submodule "ruby-build"]
 	path = ruby-build
 	url = git://github.com/sstephenson/ruby-build.git
+[submodule "scm_breeze"]
+	path = scm_breeze
+	url = git://github.com/ndbroadbent/scm_breeze.git
