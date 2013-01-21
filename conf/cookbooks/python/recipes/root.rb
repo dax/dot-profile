@@ -1,3 +1,7 @@
 package "python"
 package "python-virtualenv"
-package "python-virtualenvwrapper"
+if platform?("debian")
+  package "virtualenvwrapper"
+else
+  package "python-virtualenvwrapper"
+end

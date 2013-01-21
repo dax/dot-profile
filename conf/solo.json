@@ -4,5 +4,6 @@
                 "recipe[scm_breeze]",
                 "recipe[git]",
                 "recipe[python]",
+                "recipe[nodejs]",
                 "recipe[ruby]" ]
 }

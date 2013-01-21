@@ -1,4 +1,10 @@
+if platform?("debian")
+  vew = "/etc/bash_completion.d/virtualenvwrapper"
+else
+  vew = "/usr/bin/virtualenvwrapper.sh"
+end
+
 execute "default-env" do
-  command "[ -f /usr/bin/virtualenvwrapper.sh ] && . /usr/bin/virtualenvwrapper.sh && mkvirtualenv default"
+  command "bash -c '. #{vew} && mkvirtualenv default'"
   creates "#{ENV['HOME']}/.virtualenvs/default"
 end

@@ -1,5 +1,6 @@
 {
   "run_list": [ "recipe[profile::root]",
                 "recipe[git::root]",
-                "recipe[python::root]" ]
+                "recipe[python::root]",
+                "recipe[ruby::root]" ]
 }
