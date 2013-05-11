@@ -4,6 +4,6 @@ end
 
 directory "#{ENV['HOME']}/.rbenv/plugins"
 
-link "#{ENV['HOME']}/.rbenv/plugins/ruby-build" do
-  to "#{ENV['PWD']}/../ruby-build"
+execute "install ruby-build rbenv plugin" do
+  command "cp -a #{ENV['PWD']}/../ruby-build #{ENV['HOME']}/.rbenv/plugins/"
 end
