@@ -44,6 +44,7 @@
 [core]
     whitespace = trailing-space,space-before-tab
     autocrlf = input
+	excludesfile = /home/david/.gitignore
 #    safecrlf = true
 [diff]
     renames = copies

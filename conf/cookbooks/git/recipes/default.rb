@@ -2,6 +2,10 @@ link "#{ENV['HOME']}/.gitconfig" do
   to "#{ENV['PWD']}/../dot-gitconfig"
 end
 
+link "#{ENV['HOME']}/.gitignore" do
+  to "#{ENV['PWD']}/../dot-gitignore"
+end
+
 directory "#{ENV['HOME']}/local/bin" do
   recursive true
 end
