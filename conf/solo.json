@@ -2,6 +2,7 @@
   "run_list": [ "recipe[profile]",
                 "recipe[bash-it]",
                 "recipe[scm_breeze]",
+                "recipe[direnv]",
                 "recipe[git]",
                 "recipe[python]",
                 "recipe[nodejs]",
