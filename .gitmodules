@@ -22,3 +22,6 @@
 [submodule "direnv"]
 	path = direnv
 	url = git://github.com/zimbatm/direnv.git
+[submodule "git-imerge"]
+	path = git-imerge
+	url = https://github.com/mhagger/git-imerge.git

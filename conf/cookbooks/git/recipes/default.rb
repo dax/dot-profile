@@ -34,3 +34,11 @@ directory "#{ENV['HOME']}/.completion.d"
 link "#{ENV['HOME']}/.completion.d/git-flow-completion" do
   to "#{ENV['PWD']}/../git-flow-completion/git-flow-completion.bash"
 end
+
+link "#{ENV['HOME']}/local/bin/git-imerge" do
+  to "#{ENV['PWD']}/../git-imerge/git-imerge"
+end
+
+link "#{ENV['HOME']}/local/bin/python2" do
+  to "/usr/bin/python2.7"
+end
