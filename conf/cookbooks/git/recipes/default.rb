@@ -42,3 +42,20 @@ end
 link "#{ENV['HOME']}/local/bin/python2" do
   to "/usr/bin/python2.7"
 end
+
+execute "Install Git Extras" do
+  environment({"DESTDIR" => "#{ENV['HOME']}/local/stow/git-extras"})
+  command "make install"
+  path ["/bin", "/usr/bin"]
+  cwd "#{ENV['PWD']}/../git-extras"
+end
+
+link "#{ENV['HOME']}/.bash_it/custom/git-extras.completion.bash" do
+  to "#{ENV['HOME']}/local/stow/git-extras/etc/bash_completion.d/git-extras"
+end
+
+execute "Stow Git Extras" do
+  command "stow git-extras"
+  path ["/bin", "/usr/bin"]
+  cwd "#{ENV['HOME']}/local/stow"
+end

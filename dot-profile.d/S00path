@@ -1,4 +1,5 @@
 # -*- sh -*-
 
 export JAVA_HOME=${HOME}/local/stow/java
-PATH=${HOME}/local/bin:${JAVA_HOME}/bin:/sw/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=${HOME}/local/bin:${JAVA_HOME}/bin:/sw/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=${HOME}/local/share/man:${MANPATH}
